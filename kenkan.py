@@ -31,11 +31,11 @@ def send_page(user_id, first_name, chat_id,
     markup = types.InlineKeyboardMarkup()
     button = types.InlineKeyboardButton
     page_number, page_url= get_page(page_number, is_start)
-    next_button = button(text="▶️Berikutnya", callback_data=f"{page_number + 1} {user_id} {first_name}")\
+    next_button = button(text="▶️", callback_data=f"{page_number + 1} {user_id} {first_name}")\
                     if with_markup else None
-    back_button = button(text="◀️Sebelumnya", callback_data=f"{page_number - 1} {user_id} {first_name}")\
+    back_button = button(text="◀️", callback_data=f"{page_number - 1} {user_id} {first_name}")\
                     if with_markup else None
-    start_button = button(text="Pembukaan Al-Qur'an🕋", callback_data=f"{1} {user_id} {first_name}")\
+    start_button = button(text="🕋 Al-Qur'an 🕋", callback_data=f"{1} {user_id} {first_name}")\
                     if with_markup else None
     buttons_list = [start_button] if is_start else [back_button, next_button]\
                     if with_markup else []
@@ -100,7 +100,7 @@ def message_handler(message):
         except Exception as err:
             BOT.reply_to(message, err)
     elif text in ['/repo']:
-        BOT.reply_to(message, "Kalau mau bikin bot sendiri kak nih reponya\nhttps://github.com/kenkannih/Al-Qur-an")
+        BOT.reply_to(message, "Ai Qur-an Bot\n\nHow To Own This Ai Qur-An Bot")
 
 @BOT.callback_query_handler(func=lambda call:True)
 def query_handler(call):
