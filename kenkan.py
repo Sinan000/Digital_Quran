@@ -44,6 +44,12 @@ def send_page(user_id, first_name, chat_id,
         BOT.send_photo(chat_id, page_url if page_url else open('./mt_al_quran_bot/al_quran.jpg', 'rb'),
                         reply_to_message_id=message_id,reply_markup=markup if with_markup else None,
                             caption=messages.get('start') if is_start else None)
+        BOT.send_photo(chat_id, page_url if page_url else open('./img/start_img.jpg', 'rb'),
+
+                        reply_to_message_id=message_id,reply_markup=markup if with_markup else None,
+
+                            caption=messages.get('help') if is_start else None)
+        
     else:
         urllib.request.urlretrieve(page_url, f"{page_number}.png")
         with open(f"{page_number}.png", 'rb') as page:
